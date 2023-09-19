@@ -14,6 +14,7 @@ pipeline {
             steps{
              sh "mvn -Dmaven.test.failure.ignore=true  test"
         }
+        }
         stage('compile'){
             steps{
               //Run Maven Compil
@@ -22,4 +23,4 @@ pipeline {
     }
     }
     }
-    }
+    
