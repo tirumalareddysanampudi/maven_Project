@@ -9,10 +9,11 @@ pipeline {
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean test"
             }
-            stage('compile'){
+        stage('compile'){
             steps {
+                // Run Maven on compile
                sh "mvn compile"
-            }
+               }
             }
 
             }
