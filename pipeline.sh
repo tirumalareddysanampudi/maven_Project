@@ -16,3 +16,5 @@ pipeline {
               sh "mvn -Dmaven.test.failure.ignore=tru compile"
         }
     }
+    }
+    }
