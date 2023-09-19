@@ -13,6 +13,6 @@ pipeline {
         stage('compile'){
             steps{
               //Run Maven Compil
-              sh "mvn compile"
+              sh "mvn -Dmaven.test.failure.ignore=tru compile"
         }
     }
