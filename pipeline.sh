@@ -10,7 +10,7 @@ pipeline {
                 git credentialsId: 'd1ea93fa-dbdf-4a89-a0bb-00c78b7fe433', url: 'https://github.com/tirumalareddysanampudi/maven_Project.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true clean "
+               // sh "mvn -Dmaven.test.failure.ignore=true clean "
             }
             }
         stage('Build'){
@@ -32,7 +32,7 @@ pipeline {
     stage('package'){
          steps{
             sh "mvn package"
-            sh "mv target/*.jar  target/myweb.jar"
+            sh "mv target/*.war  target/myweb.war"
          }
     }
     stage ('code-deploy'){
