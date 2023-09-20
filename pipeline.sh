@@ -33,7 +33,7 @@ pipeline {
          steps{
          
             sh "mvn package"
-            sh "mv target/*.war  target/*.war"
+           // sh "mv target/*.war  target/*.war"
          }
     }
     stage ('code-deploy'){
