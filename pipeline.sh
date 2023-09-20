@@ -32,7 +32,7 @@ pipeline {
     stage('package'){
          steps{
             sh "mvn package"
-            sh "mv target/*.war  target/myweb.war"
+            sh "mv target/*.jar  target/myweb.jar"
          }
     }
     stage ('code-deploy'){
