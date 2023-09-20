@@ -29,6 +29,25 @@ pipeline {
               sh "mvn  compile"
         }
     }
+    stage('package'){
+         steps{
+            sh "mvn package"
+            sh "mv target/*.war  target/myweb.war"
+         }
+    }
+    stage ('code-deploy'){
+          steps {
+                    sshagent(['TOMCAT']) {
+                    sh """
+                       scp -o StrictHostKeyChecking=no  target/myweb.war ec2-user@10.0.0.62  /opt/apache-tomcat-9.0.80/webapps/
+                        // after copy file to restart the tomcat
+                        sh ec2-user@10.0.0.62  /opt/apache-tomcat-9.0.80/bin/shutdown.sh
+                        // start the tomcat
+                        sh ec2-user@10.0.0.62  /opt/apache-tomcat-9.0.80/bin/startup.sh
+                    """
+                }
     }
     }
+}
+}
     
