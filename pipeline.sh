@@ -42,6 +42,7 @@ pipeline {
     // some block
 }
     }
+    }
    
 }
 }
