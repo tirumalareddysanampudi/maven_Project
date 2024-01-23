@@ -36,19 +36,7 @@ pipeline {
            // sh "mv target/*.war  target/*.war"
          }
     }
-    stage ('code-deploy'){
-          steps {
-                    sshagent(['TOMCAT']) {
-                    sh """
-                       sudo scp -o StrictHostKeyChecking=no  target/myweb.war ec2-user@10.0.0.62  /opt/apache-tomcat-9.0.80/webapps/
-                        // after copy file to restart the tomcat
-                        sudo sh ec2-user@10.0.0.62  /opt/apache-tomcat-9.0.80/bin/shutdown.sh
-                        // start the tomcat
-                        sudo sh ec2-user@10.0.0.62  /opt/apache-tomcat-9.0.80/bin/startup.sh
-                    """
-                }
-    }
-    }
+   
 }
 }
     
