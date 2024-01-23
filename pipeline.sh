@@ -36,6 +36,12 @@ pipeline {
            // sh "mv target/*.war  target/*.war"
          }
     }
+    stage('Code-Deploy'){
+      steps{
+      sshagent(['TOMCAT']) {
+    // some block
+}
+    }
    
 }
 }
