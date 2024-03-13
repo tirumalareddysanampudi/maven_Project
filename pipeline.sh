@@ -33,12 +33,6 @@ pipeline {
             sh "mv target/*.war  target/*.war"
          }
     }
-    stage(Deploy-Tomcat){
-          steps{
-          
-          }
-       
-    }
    
 }
 }
